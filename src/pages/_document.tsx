@@ -1,4 +1,4 @@
-import Document, { Html, Main, NextScript, Head } from "next/document";
+import Document, { Html, Main, NextScript, Head } from 'next/document';
 
 export default class MyDocument extends Document {
   render() {
@@ -6,7 +6,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin=""
+          />
 
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,900&display=swap"
