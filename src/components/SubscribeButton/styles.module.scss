@@ -13,10 +13,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   transition: filter 0.2s;
 
   &:hover {
     filter: brightness(0.8);
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::before {
+      --gap-size: 0.5rem;
+      --gap: calc(var(--gap-size) * -1);
+      content: '';
+      display: block;
+      position: absolute;
+      top: var(--gap);
+      bottom: var(--gap);
+      left: var(--gap);
+      right: var(--gap);
+      background-color: transparent;
+      border: 2px solid var(--yellow-500);
+      border-radius: 4rem;
+    }
   }
 }
