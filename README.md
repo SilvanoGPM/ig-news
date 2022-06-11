@@ -48,3 +48,4 @@ Com o projeto já configurado, siga os seguintes passos para executá-lo.
 
 - [Ignite](https://www.rocketseat.com.br/ignite)
 - [Layout](https://www.figma.com/file/YM4JFm0d4b4TovqmCNrgRW/ig.news?node-id=1%3A2)
+- [Posts para teste](https://blog.rocketseat.com.br)
