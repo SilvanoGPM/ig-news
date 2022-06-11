@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center"><img width=300 src="./public/images/logo.svg" /></h1>
+<p align="center">Informações sobre o mundo React. <br /> Aplicação desenvolvida durante o terceiro capítulo do Ignite.</p>
 
-## Getting Started
+## Tecnologias utilizadas :rocket:
 
-First, run the development server:
+- [React](https://pt-br.reactjs.org/)
+- [Next](https://nextjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Stripe](https://stripe.com/br)
+- [FaunaDB](https://fauna.com/)
+- [Prismic](https://prismic.io/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Como executar :hammer:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Você precisará ter o [NodeJS](https://nodejs.org/en/) na sua máquina.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone este repositório.
+2. Abra uma nova janela no terminal e navegue até o diretório do projeto.
+3. Execute `npm install` ou `yarn`.
+4. Execute `npm run dev` ou `yarn dev`.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Imagens :sparkles:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![image](https://user-images.githubusercontent.com/59753526/173204990-3533f9d6-6837-4fe5-baa9-73f9e607eca3.png)
+![image](https://user-images.githubusercontent.com/59753526/173205003-c1c3eff4-8dab-485d-9fa9-3cdc7fe2004f.png)
 
-## Learn More
+## Funcionalidades 🎮
 
-To learn more about Next.js, take a look at the following resources:
+- Preço da assinatura automático na página inicial.
+- Login com Github.
+- Inscrição por meio do Stripe.
+- Listagem de postagens.
+- Gerenciamento de postagens com o Prismic CMS.
+- Pré-visualização de postagens para não assinantes. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Agradecimentos :heart:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Ignite](https://www.rocketseat.com.br/ignite)
+- [Layout](https://www.figma.com/file/YM4JFm0d4b4TovqmCNrgRW/ig.news?node-id=1%3A2)
