@@ -1,8 +1,22 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+
+import { createClient } from '../../../prismicio';
 
 import styles from './styles.module.scss';
 
-export default function Posts() {
+interface Post {
+  slug: string;
+  title: string;
+  excerpt: string;
+  updatedAt: string;
+}
+
+interface PostsProps {
+  posts: Post[];
+}
+
+export default function Posts({ posts }: PostsProps) {
   return (
     <>
       <Head>
@@ -11,72 +25,41 @@ export default function Posts() {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          <a href="#">
-            <time className={styles.postedAt}>10 de Junho de 2022</time>
+          {posts.map((post) => (
+            <a href="#" key={post.slug}>
+              <time className={styles.postedAt}>{post.updatedAt}</time>
 
-            <strong className={styles.title}>
-              Recoil - biblioteca de gerenciamento de estados no React
-            </strong>
+              <strong className={styles.title}>{post.title}</strong>
 
-            <p className={styles.content}>
-              Vamos falar de React com um assunto interessante: Gerenciamento de
-              estados e a nova lib chamada Recoil.
-            </p>
-          </a>
-
-          <a href="#">
-            <time className={styles.postedAt}>10 de Junho de 2022</time>
-
-            <strong className={styles.title}>
-              Recoil - biblioteca de gerenciamento de estados no React
-            </strong>
-
-            <p className={styles.content}>
-              Vamos falar de React com um assunto interessante: Gerenciamento de
-              estados e a nova lib chamada Recoil.
-            </p>
-          </a>
-
-          <a href="#">
-            <time className={styles.postedAt}>10 de Junho de 2022</time>
-
-            <strong className={styles.title}>
-              Recoil - biblioteca de gerenciamento de estados no React
-            </strong>
-
-            <p className={styles.content}>
-              Vamos falar de React com um assunto interessante: Gerenciamento de
-              estados e a nova lib chamada Recoil.
-            </p>
-          </a>
-
-          <a href="#">
-            <time className={styles.postedAt}>10 de Junho de 2022</time>
-
-            <strong className={styles.title}>
-              Recoil - biblioteca de gerenciamento de estados no React
-            </strong>
-
-            <p className={styles.content}>
-              Vamos falar de React com um assunto interessante: Gerenciamento de
-              estados e a nova lib chamada Recoil.
-            </p>
-          </a>
-
-          <a href="#">
-            <time className={styles.postedAt}>10 de Junho de 2022</time>
-
-            <strong className={styles.title}>
-              Recoil - biblioteca de gerenciamento de estados no React
-            </strong>
-
-            <p className={styles.content}>
-              Vamos falar de React com um assunto interessante: Gerenciamento de
-              estados e a nova lib chamada Recoil.
-            </p>
-          </a>
+              <p className={styles.content}>{post.excerpt}</p>
+            </a>
+          ))}
         </div>
       </main>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = createClient();
+
+  const response = await prismic.getAllByType('post', { pageSize: 100 });
+
+  const posts = response.map<Post>((post) => {
+    return {
+      slug: post.uid,
+      title: post.data.title,
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        'pt-BR',
+        { day: '2-digit', month: 'long', year: 'numeric' },
+      ),
+      excerpt:
+        post.data.content.find((content) => content.type === 'paragraph')
+          ?.text ?? '',
+    };
+  });
+
+  return {
+    props: { posts },
+  };
+};
